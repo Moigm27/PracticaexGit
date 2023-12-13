@@ -43,7 +43,7 @@ namespace Practicaex
                     // Manejar cualquier excepción aquí si es necesario
                     MessageBox.Show("Error al consultar la API: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                return firstName + " " + lastName;
+                return firstName + "," + lastName;
             }
 
         }
