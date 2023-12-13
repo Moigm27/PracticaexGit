@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Principal;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Practicaex
@@ -27,13 +29,35 @@ namespace Practicaex
 
         }
         listarDatos listar;
+        int opt;
+
         private void button1_Click(object sender, EventArgs e)
         {
-
-            insertar();
-
+            opt = comboBox1.SelectedIndex;
+            principal = new Thread(new ThreadStart(insertar));
+            principal.Start();
         }
+        private void insertarMedio(persona p)
+        {
+            try
+            {
+                nodo aux = new nodo();
+                int contador = 2;
+                for (aux = listar.getCabeza(); aux != null; aux = aux.GetSiguiente())
+                {
+                    if (contador == int.Parse(txt.Text))
+                    {
+                        listar.insertarMedio(aux, p);
+                    }
+                    contador++;
+                }
 
+            }
+            catch
+            {
+
+            }
+        }
         public void insertar()
         {
             
@@ -43,8 +67,7 @@ namespace Practicaex
             p.apellido = split[0] +" "+ split[1];
             p.nombre = split[2] +" "+ split[3];
 
-            int opt;
-            opt = comboBox1.SelectedIndex;
+            
             switch (opt)
             {
                 case 0:
@@ -59,6 +82,7 @@ namespace Practicaex
 
                 case 2:
 
+                    insertarMedio(p);
                     break;
 
 
@@ -97,5 +121,8 @@ namespace Practicaex
         {
             insertarEngrid();
         }
+
+        Thread principal;
     }
+   
 }

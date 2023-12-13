@@ -51,6 +51,13 @@ namespace Practicaex
             }
             return this;
         }
-        Thread princuoal;
+        public listarDatos insertarMedio(nodo anterior, persona p)
+        {
+            nodo nuevo = new nodo();
+            nuevo.setPersona(p);
+            nuevo.setSiguiente(anterior.GetSiguiente());
+            anterior.setSiguiente(nuevo);
+            return this;
+        }
     }
 }

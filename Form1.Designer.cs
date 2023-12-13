@@ -35,6 +35,7 @@
             this.cedula_text = new System.Windows.Forms.TextBox();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txt = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,11 +105,19 @@
             this.Apellido.Name = "Apellido";
             this.Apellido.Width = 125;
             // 
+            // txt
+            // 
+            this.txt.Location = new System.Drawing.Point(406, 89);
+            this.txt.Name = "txt";
+            this.txt.Size = new System.Drawing.Size(100, 22);
+            this.txt.TabIndex = 5;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txt);
             this.Controls.Add(this.cedula_text);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.button2);
@@ -128,10 +137,11 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox cedula_text;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Apellido;
+        public System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.TextBox txt;
     }
 }
 
