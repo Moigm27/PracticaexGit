@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Practicaex
@@ -8,6 +10,16 @@ namespace Practicaex
         public Form1()
         {
             InitializeComponent();
+            try
+            {
+                listar = new listarDatos();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al crear la lista");
+
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -36,11 +48,13 @@ namespace Practicaex
             switch (opt)
             {
                 case 1:
-                    listar.insertarCabeza(p);
+                    listar.insertarAlFinal(p);
+
                     break;
 
                 case 2:
-                    listar.insertarAlFinal(p);
+                    listar.insertarCabeza(p);
+
                     break;
 
                 case 3:
@@ -51,12 +65,37 @@ namespace Practicaex
                 default:
                     break;
             }
+            
 
         }
         public void insertarEngrid()
         {
 
+            try
+            {
+                dataGridView1.Rows.Clear();
+                nodo aux = new nodo();
+                aux = listar.getCabeza();
 
+                while (aux != null)
+                {
+                    DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                    row.Cells[0].Value = aux.GetPersona().apellido;
+                    row.Cells[1].Value = aux.GetPersona().nombre;
+                    dataGridView1.Rows.Add(row);
+
+                    aux = aux.GetSiguiente();
+                }
+            }
+            catch (Exception )
+            {
+                MessageBox.Show("Error al cargar el grid");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            insertarEngrid();
         }
     }
 }
