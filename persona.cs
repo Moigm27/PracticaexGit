@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Practicaex
 {
-    internal class MostrarDatos
-    {        
+    internal class persona
+    {
+        public string nombre;
+        public string apellido;
+
     }
 }

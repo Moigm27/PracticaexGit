@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Practicaex
@@ -19,6 +12,50 @@ namespace Practicaex
 
         private void Form1_Load(object sender, EventArgs e)
         {
+
+        }
+        listarDatos listar;
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
+
+        public void insertar()
+        {
+            
+            CargarDatos cargar = new CargarDatos();
+            persona p = new persona();
+            string[] split = cargar.ConsultarAPI(int.Parse(cedula_text.Text)).Split(' ');
+            p.apellido = split[0];
+            p.nombre = split[1];
+
+            int opt;
+            opt = comboBox1.SelectedIndex;
+            switch (opt)
+            {
+                case 1:
+                    listar.insertarCabeza(p);
+                    break;
+
+                case 2:
+                    listar.insertarAlFinal(p);
+                    break;
+
+                case 3:
+
+                    break;
+
+
+                default:
+                    break;
+            }
+
+        }
+        public void insertarEngrid()
+        {
+
 
         }
     }
