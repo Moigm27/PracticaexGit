@@ -30,7 +30,7 @@ namespace Practicaex
         private void button1_Click(object sender, EventArgs e)
         {
 
-
+            insertar();
 
         }
 
@@ -47,17 +47,17 @@ namespace Practicaex
             opt = comboBox1.SelectedIndex;
             switch (opt)
             {
-                case 1:
+                case 0:
                     listar.insertarAlFinal(p);
 
                     break;
 
-                case 2:
+                case 1:
                     listar.insertarCabeza(p);
 
                     break;
 
-                case 3:
+                case 2:
 
                     break;
 
