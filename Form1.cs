@@ -63,6 +63,7 @@ namespace Practicaex
             
             CargarDatos cargar = new CargarDatos();
             persona p = new persona();
+
             string[] split = cargar.ConsultarAPI(int.Parse(cedula_text.Text)).Split(',');
             
             p.apellido = split[0];
